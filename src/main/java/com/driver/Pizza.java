@@ -8,6 +8,7 @@ public class Pizza {
     private boolean addTakeaway;
     private boolean addExtraCheese;
     private boolean addExtraToppings;
+    private boolean isBillGenerated;
     private int paperBag;
     private int extraCheese;
     private int extraToppings;
@@ -17,6 +18,7 @@ public class Pizza {
        this.addTakeaway=false;
        this.addExtraCheese=false;
        this.addExtraToppings=false;
+       this.isBillGenerated=false;
        this.paperBag=20;
        this.extraCheese=80;
        if(isVeg){
@@ -55,18 +57,21 @@ public class Pizza {
        }
     }
 
-    public String getBill(){
-       if(addTakeaway){
-           this.bill=this.bill+"Paperbag Added: "+paperBag+"\n";
-       }
-       if(addExtraCheese){
-           this.bill=this.bill+"Extra Cheese Added: "+extraCheese+"\n";
-       }
-       if(addExtraToppings){
-           this.bill=this.bill+"Extra Toppings Added: "+extraToppings+"\n";
-       }
+    public String getBill() {
+        if (isBillGenerated == false) {
+            if (addTakeaway) {
+                this.bill = this.bill + "Paperbag Added: " + paperBag + "\n";
+            }
+            if (addExtraCheese) {
+                this.bill = this.bill + "Extra Cheese Added: " + extraCheese + "\n";
+            }
+            if (addExtraToppings) {
+                this.bill = this.bill + "Extra Toppings Added: " + extraToppings + "\n";
+            }
 
-       this.bill=this.bill+"Total Price: "+this.price+"\n";
+            this.bill = this.bill + "Total Price: " + this.price + "\n";
+            return this.bill;
+        }
         return this.bill;
     }
 }
