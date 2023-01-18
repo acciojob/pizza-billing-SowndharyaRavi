@@ -59,6 +59,7 @@ public class Pizza {
 
     public String getBill() {
         if (isBillGenerated == false) {
+            isBillGenerated=true;
             if (addTakeaway) {
                 this.bill = this.bill + "Paperbag Added: " + paperBag + "\n";
             }
